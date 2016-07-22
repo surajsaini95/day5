@@ -1,181 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<html>
 <head>
-  <title>Home</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>register</title>
 <style>
-@import url('http://weloveiconfonts.com/api/?family=entypo');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.error {
+	color: #ff0000;
 }
 
-body {
-  background: #ddd;
-}
-
-.wrapper {
-  padding: 120px 0 0;
-  text-align: center;
-}
-
-.social {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  margin: 0 10px;
-  line-height: 50px;
-  font-family: Entypo;
-  font-size: 28px;
-  text-align: center;
-  color: #555;
-  border-radius: 10px;
-  background: #eee;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-body{background-color: #FbFbFb;
-            background-image: linear-gradient(to bottom, #FbFbFb, #f3f3f3);}
-.get-in-touch {
-position: relative;
-margin: 0 auto;
-padding: 30px;
-border-radius: 2px;
-background: rgb(255, 255, 255) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAGCAYAAACFIR03AAAAV0lEQVR42tXOMRWAQAwE0RWFDRTg5d47Jeg4Q9gI06RbqlwKil/P6LpXbDCf85AxEBtMGjKG/jyPUHUerfP4nEeoOo/Wedj5pOo8Wudh55Oq82idh51PLxpvled7kLAXAAAAAElFTkSuQmCC) repeat-x;
-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.get-in-touch input[type=text],.get-in-touch input[type=email],.get-in-touch input[type=password], .get-in-touch textarea {
-background: rgb(235, 241, 245);
-color: rgb(36, 39, 41);
-}
-.get-in-touch  input:focus, .get-in-touch  textarea:focus {
-outline: 0;
-background: #FFF;
-}
-</style></head>
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}</style>
+</head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
- <a href="#"><img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\n1.png" alt="ninja" width="250" height="150">
-    </a>
-	
-    </div>
-    <h3>
-    <ul class="nav navbar-nav navbar-right">
-       <li><a href="index"> Home</a></li> 
-	   <div class="btn-group">
-	   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Sign In
-	   <span class="caret"></span>
-	   </button>
-	   <ul class="dropdown-menu" role="menu">
-	   <li><a href="login">Admin</a></li>
-	   <li><a href="login">Customer</a></li>
-	   </ul>
-	   </div>
-    
-    </ul></h3>
-  </div>
-</nav>
-<br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <form action="#" method="post" class="form-horizontal">
-            <div class="get-in-touch">
-                <h3 class="text-center">What are you waiting for! Register now!</h3>
-                <hr/>
-                    <div class="form-group">
-					    <label for="customername" class="col-sm-2 control-label">Enter name</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="cname" placeholder="customer name" maxlength=32>
-					    </div>
-				   </div> 
-				   
-				   <div class="form-group">
-					    <label for="customermobilenumber" class="col-sm-2 control-label">Enter contact number</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="mobilenumber" placeholder="contact number" pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}'>
-					    </div>
-				   </div>
-				   
-				    <div class="form-group">
-					    <label for="customeraddress" class="col-sm-2 control-label">Enter residence address</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="address" placeholder="residence address">
-					    </div>
-				   </div>
-				   
-				   <div class="form-group">
-					    <label for="customeremail" class="col-sm-2 control-label">Enter email id</label>
-					    <div class="col-sm-10">
-					      <input type="email" class="form-control" id="email" placeholder="someone@example.com">
-					    </div>
-				   </div>
-				   
-				   <div class="form-group">
-					    <label for="customerpassword" class="col-sm-2 control-label">Enter password</label>
-					    <div class="col-sm-10">
-					      <input type="password" class="form-control" id="password" placeholder="***********">
-					    </div>
-				   </div>
-				   
-				    <div class="form-group">
-					    <label for="customerrepassword" class="col-sm-2 control-label">Confirm password</label>
-					    <div class="col-sm-10">
-					      <input type="password" class="form-control" id="repassword" placeholder="***********">
-					    </div>
-				   </div>
-				   
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="txtPassword" placeholder="**************">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-                <a href="http://www.jquery2dotnet.com" class="btn btn-danger btn-sm pull" role="button">Log In</a>
-                </div>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-
- <br><br><br><br><br><br><br><br>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-      <h3>
-      <ul class="nav navbar-nav navbar-left">
-      <li><a href="#"> About Us</a></li> 
-	  <li><a href="#"> Contact Us</a></li>
-      
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <div class="wrapper">
-  <div float=right class="social">&#62220;</div>
-  <div float=right class="social">&#62217;</div>
-  <div float=right class="social">&#62223;</div>
-  
-</div>  </ul></h3>
-  </div>
-</nav>
-
-</body>
+   <form:form method="GET" commandName="customerreg" action="customerreg/login">
+		<form:errors path="*" cssClass="errorblock" element="div" />
+		<table>
+			<tr>
+				<td>Customer Name :</td>
+				<td><form:input  path="cname" /></td>
+				<td><form:errors path="cname" cssClass="error" /></td>
+			</tr>
+			<tr>
+				<td>Customer Email :</td>
+				<td><form:input  path="email" type="email"/></td>
+				<td><form:errors path="email" cssClass="error" /></td>
+			</tr>
+			<tr>
+				<td>Customer Address :</td>
+				<td><form:input path="address" type="text"/></td>
+				<td><form:errors path="address" cssClass="error" /></td>
+			</tr>
+		   <tr>
+				<td>Customer mobile:</td>
+				<td><form:input  path="mobilenumber" type="number"/></td>
+				<td><form:errors path="mobilenumber" cssClass="error" /></td>
+			</tr>
+			
+			<tr>
+				<td colspan="3"><input type="submit" /></td>
+			</tr>
+		</table>
+	</form:form>
+	</body>
 </html>
 

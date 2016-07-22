@@ -5,17 +5,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.validator.constraints.Email;
 
-@Table(name="CUSTOMER")
+
 @Entity
+@Table(name="CUSTOMER")
 public class customer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int cid;
+	
+
 	public String cname;
+	
+
+	@Email
 	public String email;
+	
 	public String address;
+
 	public int mobilenumber;
 	public String password;
 	public String repassword;
@@ -49,18 +58,17 @@ public class customer {
 	public void setMobilenumber(int mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
-	public String getPassword1() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword1(String password1) {
-		this.password = password1;
+	public void setPassword(String  password) {
+		this.password = password;
 	}
-	public String getPassword2() {
+	public String getRepassword() {
 		return repassword;
 	}
-	public void setPassword2(String password2) {
-		this.repassword= password2;
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
 	}
-
-
+	
 }

@@ -75,7 +75,7 @@ background: #FFF;
     <h3>
     <ul class="nav navbar-nav navbar-right">
        <li><a href="index"> Home</a></li> 
-	  <li><a href="register"> Register</a></li>
+	  <li><a href="customerreg"> Register</a></li>
 	   <div class="btn-group">
 	   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Sign In
 	   <span class="caret"></span>
@@ -112,7 +112,7 @@ background: #FFF;
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-                <a href="http://www.jquery2dotnet.com" class="btn btn-danger btn-sm pull" role="button">Log In</a>
+                <a href="#" class="btn btn-danger btn-sm pull" role="button">Log In</a>
                 </div>
                 </div>
             </div>

@@ -55,8 +55,17 @@ body {
        <li><a href="index"> Home</a></li> 
 	 <li><a href="product"> Product</a></li> 
 	 <li><a href="addproduct"> Add Product</a></li> 
-	  <li><a href="#"> Sign In</a></li>
-      <li><a href="register"> Register</a></li>
+	  <li><a href="customerreg"> Register</a></li>
+	   <div class="btn-group">
+	   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Sign In
+	   <span class="caret"></span>
+	   </button>
+	   <ul class="dropdown-menu" role="menu">
+	   <li><a href="login">Admin</a></li>
+	   <li><a href="login">Customer</a></li>
+	   </ul>
+	   </div>
+    
     </ul></h3>
   </div>
 </nav>

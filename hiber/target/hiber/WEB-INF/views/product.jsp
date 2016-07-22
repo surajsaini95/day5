@@ -74,9 +74,7 @@ body {
     <ul class="nav navbar-nav navbar-right">
       <li><a href="index"> Home</a></li> 
 	  <li><a href="addproduct"> AddProduct</a></li> 
-	  <li><a href="#"> Sign In</a></li>
-      <li><a href="register"> Register</a></li>
-    </ul></h3>
+	  </ul></h3>
   </div>
 </nav>
 
@@ -89,10 +87,10 @@ body {
             <th>PId</th>  
             <th>ProductName</th>  
             <th>Category</th>  
-            <th>price</th> 
-            <th>update</th> 
-            <th>delete</th> 
-            <th>details</th> 
+            <th>Price</th> 
+            <th>Update</th> 
+            <th>Delete</th> 
+            <th>Details</th> 
             
              
           </tr>  
@@ -100,14 +98,14 @@ body {
         <tbody>  
  
         
-          <c:forEach items="${dl}" var="prod">
+          <c:forEach items="${listProduct}" var="p">
            <tr>  
-          <td>${prod.id}</td>
-          <td>${prod.productName}</td>
-          <td>${prod.category}</td>
-          <td>${prod.price}</td>
-          <td><a href="edit/${prod.id}" class="btn btn-primary">Edit</a> </td>
-          <td><a href="delete/${prod.id}" class="btn btn-primary">Delete</a> </td>
+          <td>${p.id}</td>
+          <td>${p.name}</td>
+          <td>${p.category}</td>
+          <td>${p.price}</td>
+          <td><a href="edit/${p.id}" class="btn btn-primary">Edit</a> </td>
+          <td><a href="delete/${p.id}" class="btn btn-primary">Delete</a> </td>
           <td><a href="details" class="btn btn-primary">Details</a> </td>
           
           

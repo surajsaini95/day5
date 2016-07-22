@@ -1,4 +1,8 @@
+controllers\customerController.class
 controllers\HomeController.class
-dao\productServices.class
+model\customer.class
 model\Product.class
 dao\productDAOImpl.class
+dao\productServices.class
+dao\customerDAOImpl.class
+dao\customerServices.class

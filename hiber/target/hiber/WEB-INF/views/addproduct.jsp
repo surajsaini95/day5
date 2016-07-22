@@ -1,3 +1,8 @@
+<%@ page session="false"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -67,81 +72,51 @@ body {
     <ul class="nav navbar-nav navbar-right">
       <li><a href="index"> Home</a></li> 
 	  <li><a href="product"> Product</a></li> 
-	  <li><a href="#"> Sign In</a></li>
-      <li><a href="register"> Register</a></li>
-    </ul></h3>
+	  </ul></h3>
   </div>
 </nav>
 
- <br>
-     <c:url var="addAction" value="/productTable/add" ></c:url>
- 
-<form:form action="${addAction}" modelAttribute="product">
-<table>
-    <c:if test="${!empty product.name}">
-    <tr>
-        <td>
-            <form:label path="id">
-                <spring:message text="ID"/>
-            </form:label>
-        </td>
-        <td>
-            <form:input path="id" readonly="true" size="8"  disabled="true" />
+<div class="container">
+
+	<br />
+
+	<spring:url value="/addproduct" var="userActionUrl" />
+
+	<form:form class="form-horizontal" method="get" modelAttribute="product" action="${userActionUrl}">
+<c:if test="${!empty product.name}">
+     <form:label path="id"><spring:message text="ID"/></form:label>
+      <form:input path="id" readonly="true" size="8"  disabled="true" /><br/>
             <!-- <form:hidden path="id" /> -->
-        </td> 
-    </tr>
     </c:if>
-    <tr>
-        <td>
-            <form:label path="name">
-                <spring:message text="Name"/>
-            </form:label>
-        </td>
-        <td>
-            <form:input path="name" />
-        </td> 
-    </tr>
-    <tr>
-        <td>
-            <form:label path="category">
-                <spring:message text="Category"/>
-            </form:label>
-        </td>
-        <td>
-            <form:input path="category" />
-        </td>
-    </tr>
-    <tr>
-    
-     <tr>
-        <td>
-            <form:label path="price">
-                <spring:message text="Price"/>
-            </form:label>
-        </td>
-        <td>
-            <form:input path="price" />
-        </td>
-    </tr>
-    <tr>
-    <br>
- 
-        <td colspan="2">
+	<!-- 	<form:hidden path="id" />  -->
+
+		<spring:bind path="name">
+		  	<label class="col-sm-2 control-label">Product Name:</label>
+			<form:input path="name" type="text" class="form-control" id="name" placeholder="Product Name" />
+		</spring:bind>
+<br/>
+		<spring:bind path="category">
+			<label class="col-sm-2 control-label">Category</label>
+			<form:input path="category" class="form-control" id="category" placeholder="Category" />
+		</spring:bind>
+<br/>
+		<spring:bind path="price">
+			<label class="col-sm-2 control-label">Price</label>
+			<form:input path="price" class="form-control" id="price" placeholder="price" />
+		</spring:bind>
+
+		
+		<td colspan="2">
             <c:if test="${!empty product.name}">
-                <input type="submit"
-                    value="<spring:message text="Edit Product"/>" />
+                <input type="submit" value="<spring:message text="Edit Product"/>" />
             </c:if>
             <c:if test="${empty product.name}">
-                <input type="submit"
-                    value="<spring:message text="Add Product"/>" />
+                <input type="submit" value="<spring:message text="Add Product"/>" />
             </c:if>
         </td>
-    </tr>
-</table>  
-</form:form>
+      </form:form>
 
-
-
+</div>
  <div class="text-center">
         <a onclick="" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a>
         <a onclick="" class="btn btn-social-icon btn-lg btn-dropbox"><i class="fa fa-dropbox"></i></a>
@@ -169,4 +144,3 @@ body {
 
 </body>
 </html>
-

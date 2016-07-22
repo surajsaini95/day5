@@ -1,4 +1,4 @@
-<%@ page session="false"%>
+	<%@ page session="false"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -76,14 +76,30 @@ body {
   </div>
 </nav>
 
+ <br/>
+ 
+ <form  method="post" action="FileUploadSuccess" enctype="multipart/form-data">
+       
+       <label><spring:message text="File to upload"></spring:message></label>  
+       <input type="file" name="file">   
+        <input type="submit" value="upload" >
+        <span><form:errors path="file" cssClass="error" />
+		</span>
+        
+        
+        </form>
+         <br/> <br/>
+ 
 <div class="container">
 
 	<br />
+	
+		<spring:url value="/addproduct" var="userActionUrl" />
 
-	<spring:url value="/addproduct" var="userActionUrl" />
+	<form:form class="form-horizontal" method="get" modelAttribute="product" action="${userActionUrl}" >
 
-	<form:form class="form-horizontal" method="get" modelAttribute="product" action="${userActionUrl}">
-<c:if test="${!empty product.name}">
+
+	<c:if test="${!empty product.name}">
      <form:label path="id"><spring:message text="ID"/></form:label>
       <form:input path="id" readonly="true" size="8"  disabled="true" /><br/>
             <!-- <form:hidden path="id" /> -->
@@ -114,6 +130,8 @@ body {
                 <input type="submit" value="<spring:message text="Add Product"/>" />
             </c:if>
         </td>
+        <br/>
+        
       </form:form>
 
 </div>

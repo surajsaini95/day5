@@ -16,11 +16,7 @@ public class Product {
 	public int price;
 	public String category;
 
-	public Product()
-	{
-		
-	}
-
+	
 	public int getId() {
 		return id;
 	}
