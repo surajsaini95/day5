@@ -2,6 +2,9 @@ package controllers;
 
 import org.springframework.stereotype.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.ui.Model;
@@ -10,7 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.google.gson.Gson;
 
 import dao.productServices;
 import model.Product;
@@ -132,5 +138,19 @@ public class HomeController {
         return "logout";
     } 
  
+    
+    @RequestMapping(value = "/productTable" )
+	//@ResponseBody
+	public ModelAndView showproductTable()
+	{
+		List<Product> listtojsp=new ArrayList<Product>();
+		listtojsp=productService.listProduct();
+		String json = new Gson().toJson(listtojsp);  // converting list into Google Gson object which is a string
+		System.out.println(json);
+		ModelAndView mv=new ModelAndView("productTable");
+		mv.addObject("myJson", json);
+		return mv;
+	}
+    
     
 }
