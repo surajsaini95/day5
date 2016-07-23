@@ -38,7 +38,7 @@ public class FileUploadController {
 
 				// Create the file on server
 				File serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + file.getOriginalFilename()+ ".png");
+						+ File.separator + file.getOriginalFilename());
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(serverFile));
 				stream.write(bytes);

@@ -1,8 +1,11 @@
 controllers\customerController.class
 controllers\HomeController.class
 model\customer.class
+controllers\FileUploadController.class
+dao\customerDAOImpl.class
 model\Product.class
 dao\productDAOImpl.class
 dao\productServices.class
-dao\customerDAOImpl.class
 dao\customerServices.class
+util\FileValidator.class
+model\FileUpload.class

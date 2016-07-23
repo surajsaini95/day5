@@ -17,7 +17,7 @@
 </head>
 <body>
 
-   <form:form method="POST" commandName="customerreg" action="customerreg/login">
+   <form:form method="GET" commandName="customerreg" action="customerreg/login">
 		<form:errors path="*" cssClass="errorblock" element="div" />
 		<table>
 			<tr>

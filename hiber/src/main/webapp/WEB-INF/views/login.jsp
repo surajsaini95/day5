@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,36 +92,35 @@ background: #FFF;
 </nav>
 <br>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <form action="#" method="post" class="form-horizontal">
-            <div class="get-in-touch">
-                <h3 class="text-center">What are you waiting for! Sign in now!</h3>
-                <hr/>
-                    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Mail Id</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="txtUsernane" placeholder="someone@example.com">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="txtPassword" placeholder="**************">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-                <a href="#" class="btn btn-danger btn-sm pull" role="button">Log In</a>
-                </div>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
+<div id="login-box">
 
+<h3>Login with Username and Password</h3>
+
+<c:if test="${not empty error}">
+<div class="error">${error}</div>
+</c:if>
+<c:if test="${not empty msg}">
+<div class="msg">${msg}</div>
+</c:if>
+
+<form name='loginForm' action="<c:url value='perform_login'/>" method='POST'>
+
+<table>
+<tr>
+	<td>User:</td>
+	<td><input type='text' name='username'></td>
+</tr>
+<tr>
+	<td>Password:</td>
+	<td><input type='password' name='password' /></td>
+</tr>
+<tr>
+	<td colspan='2'><input name="submit" type="submit" value="submit" /></td>
+</tr>
+</table>
+ <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+</form>
+</div>
  <br><br><br><br><br><br><br><br>
 
 <nav class="navbar navbar-inverse">
