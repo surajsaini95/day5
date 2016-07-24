@@ -2,9 +2,11 @@ controllers\customerController.class
 controllers\HomeController.class
 model\customer.class
 controllers\FileUploadController.class
+controllers\Demohandler.class
 dao\customerDAOImpl.class
 model\Product.class
 dao\productDAOImpl.class
+controllers\UserBean.class
 dao\productServices.class
 dao\customerServices.class
 util\FileValidator.class

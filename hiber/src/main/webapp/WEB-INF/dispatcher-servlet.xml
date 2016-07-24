@@ -84,5 +84,22 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		<property name="flowRegistry" ref="flowRegistry" />
 		<property name="order" value="0" />
 	</bean>
+	
+	    
+                 <!-- ======== Java mail Services API ======= -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="niitemployeesportal@gmail.com" />
+		<property name="password" value="password@niit" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
               <!-- ================= end ================= -->
   </beans>

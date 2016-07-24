@@ -56,7 +56,7 @@ body {
 	 <li><a href="product"> Product</a></li> 
 	 <li><a href="addproduct"> Add Product</a></li> 
 	  <li><a href="customerreg"> Register</a></li>
-	 <li><a href="productTable">productTable</a></li>
+	  <li><a href="sendEmail"> Promote</a></li>
 	   <div class="btn-group">
 	   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Sign In
 	   <span class="caret"></span>
