@@ -76,7 +76,9 @@ public class HomeController {
     public String showFileUploadSuccess()
     {
     	return "FileUploadSuccess";
-    }
+    } 
+    
+    
     
     //FOR ADD AND UPDATE BOTH
     @RequestMapping(value = "/addproduct", method =RequestMethod.GET)

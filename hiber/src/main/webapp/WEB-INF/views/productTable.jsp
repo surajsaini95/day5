@@ -57,7 +57,7 @@
              <th><a href="" ng-click="order('category')">Category</a> </th>  
              <th><a href="" ng-click="order('name')">Name</a></th>  
              <th><a href="" ng-click="order('price')"> Price</a> </th>  
-               </tr> 
+            	<th>		</th></tr> 
          </thead>  
          <tbody>  
            <tr>  
@@ -65,6 +65,7 @@
              <td> <input type="text" ng-model="search.category" /> </td>  
              <td> <input type="text" ng-model="search.name" /></td>  
             <td>  <input type="text" ng-model="search.price" /> </td>  
+            <td>	</td>
             </tr>  
            <tr ng-repeat="listProduct in products | orderBy:predicate:reverse | filter:paginate| filter:search" ng-class-odd="'odd'">  
              
@@ -72,6 +73,8 @@
             <td>{{listProduct.category}}</td>  
             <td>{{listProduct.name}}</td>  
              <td>{{listProduct.price}}</td>  
+            <td><a href="productdescription" >Details</a> </td>
+          
              </tr>  
          </tbody>  
        </table>  
