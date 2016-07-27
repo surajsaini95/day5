@@ -32,7 +32,7 @@ public class customerController {
 	    	
 		 if(result.hasErrors())
 		 {
-			 return "/Register";
+			 return "/register";
 		 }
 		 else{
 			 
@@ -55,7 +55,13 @@ public class customerController {
 		return "register";
 
 	}
-
-
+	
+	@RequestMapping("/index")
+    public String showhome()
+    {
+    	return "index";
+    }
+	
+	
 
 }

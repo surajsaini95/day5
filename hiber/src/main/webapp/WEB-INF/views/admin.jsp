@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body bgcolor=lightgrey>
 
 <h1>Title    :   $(title)</h1>
 <h1>Message  :   $(message)</h1>

@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.css" rel="stylesheet" >
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -64,20 +67,21 @@ outline: 0;
 background: #FFF;
 }
 </style></head>
-<body>
+<body bgcolor=lightgrey>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
- <a href="#"><img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\n1.png" alt="ninja" width="250" height="150">
+ <a href="#"><img src="${pageContext.servletContext.contextPath}/resources/logo.png"  alt="ninja" width="150" height="100"/>
     </a>
 	
     </div>
     <h3>
     <ul class="nav navbar-nav navbar-right">
        <li><a href="index"> Home</a></li> 
-	  <li><a href="customerreg"> Register</a></li>
-	   <div class="btn-group">
+	  <li><a href="register"> Register</a></li>
+	    <li><a href="send"> Promote</a></li>
+	 <div class="btn-group">
 	   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Sign In
 	   <span class="caret"></span>
 	   </button>
@@ -122,25 +126,26 @@ background: #FFF;
 </form>
 </div>
  <br><br><br><br><br><br><br><br>
-
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-bottom ">
   <div class="container-fluid">
-      <h3>
-      <ul class="nav navbar-nav navbar-left">
-      <li><a href="#"> About Us</a></li> 
-	  <li><a href="#"> Contact Us</a></li>
+
+      <ul class="nav navbar-nav">
+      <li class="active"><a href="about"> About Us</a></li> 
+	  <li class="active"><a href="contact"> Contact Us</a></li>
       
     </ul>
+    
     <ul class="nav navbar-nav navbar-right">
-      <div class="wrapper">
-  <div float=right class="social">&#62220;</div>
-  <div float=right class="social">&#62217;</div>
-  <div float=right class="social">&#62223;</div>
-  
-</div>  </ul></h3>
+      
+  <li><a onclick="" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a></li>
+       
+  <li><a onclick="" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a></li>
+  <li> <a onclick="" class="btn btn-social-icon btn-lg btn-flickr"><i class="fa fa-flickr"></i></a></li>
+   <li>     <a onclick="" class="btn btn-social-icon btn-lg btn-pinterest"><i class="fa fa-pinterest"></i></a></li>
+   
+ </ul>
   </div>
 </nav>
-
 </body>
 </html>
 

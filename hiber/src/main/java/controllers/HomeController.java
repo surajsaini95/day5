@@ -51,6 +51,12 @@ public class HomeController {
     {
     	return "sent";
     }
+	
+	@RequestMapping("/about")
+    public String showaboutt()
+    {
+    	return "about";
+    }
     
     @RequestMapping("/index")
     public String showhome()
@@ -90,15 +96,14 @@ public class HomeController {
     }
     
     
-    @RequestMapping("/FileUploadSuccess")
+   /* @RequestMapping("/FileUploadSuccess")
     public String showFileUploadSuccess()
     {
     	return "FileUploadSuccess";
     } 
+     */  
     
-    
-    
-    //FOR ADD AND UPDATE BOTH
+    //FOR ADD 
     @RequestMapping(value = "/addproduct", method =RequestMethod.GET)
     public String addproduct(@ModelAttribute("product") Product p)
     {
@@ -111,11 +116,11 @@ public class HomeController {
     	return "addproduct";   
     }
 
-    @RequestMapping("/productdescription")
+   /* @RequestMapping("/desp")
     public String showProductDescription()
     {
     	return "productdescription";
-    }
+    }*/
     
     @RequestMapping(value = "/product", method=RequestMethod.GET )
     public String listProducts(Model model) {
@@ -132,7 +137,7 @@ public class HomeController {
     	return "redirect:/product";
     }
     
-    @RequestMapping("/edit/{id}")
+    /*@RequestMapping("/edit/{id}")
     public String editProduct(@PathVariable("id") int id,Model model)
     {
     	model.addAttribute("product",this.productService.getProductById(id));
@@ -140,8 +145,46 @@ public class HomeController {
     	
     	return "redirect:/addproduct";
     }
+    */
     
+    @RequestMapping(value="/contact")
+	public String showcontact()
+
+	{
+		return "edit";
+
+	}
+
  
+    @RequestMapping(value = "/saveDetail", method = RequestMethod.POST)
+    public String update(@ModelAttribute Product contact) {
+    	this.productService.updateProduct(contact);
+        return "redirect:/product";
+    }
+
+    @RequestMapping(value= "/edit", method = RequestMethod.GET)
+    public ModelAndView updateProduct1(HttpServletRequest request)
+    {
+ 	int contactId = Integer.parseInt(request.getParameter("id"));
+        Product contact = productService.getProductById(contactId);
+        ModelAndView model = new ModelAndView("edit");
+        model.addObject("contact", contact);
+    
+        
+    	return model;
+    }
+	
+    @RequestMapping(value= "/productdescription", method = RequestMethod.GET)
+    public ModelAndView description(HttpServletRequest request)
+    {
+ 	int contactId = Integer.parseInt(request.getParameter("id"));
+        Product contact = productService.getProductById(contactId);
+        ModelAndView model = new ModelAndView("productdescription");
+        model.addObject("desp", contact);
+    
+        
+    	return model;
+    }
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap model) {
         return "login";

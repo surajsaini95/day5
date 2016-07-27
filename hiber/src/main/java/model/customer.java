@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -16,19 +17,31 @@ public class customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int cid;
 	
-
-	public String cname;
+	  @NotEmpty (message = "enter name")
+	  public String cname;
 	
 
 	@Email
 	public String email;
 	
-	public String address;
+	 @NotEmpty (message = "enter address")
+	 public String address;
 
 	public int mobilenumber;
-	public String password;
-	public String repassword;
-	public int getCid() {
+	
+	/* @NotEmpty (message = "provide username.")
+	 private String username;
+	 
+	 @NotEmpty (message = "enter password")
+	    private String password;
+
+	 public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}*/
+	 public int getCid() {
 		return cid;
 	}
 	public void setCid(int cid) {
@@ -58,17 +71,12 @@ public class customer {
 	public void setMobilenumber(int mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
-	public String getPassword() {
+	/*public String getPassword() {
 		return password;
 	}
 	public void setPassword(String  password) {
 		this.password = password;
 	}
-	public String getRepassword() {
-		return repassword;
-	}
-	public void setRepassword(String repassword) {
-		this.repassword = repassword;
-	}
 	
+*/	
 }
