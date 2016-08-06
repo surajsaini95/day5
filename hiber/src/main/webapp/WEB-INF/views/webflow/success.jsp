@@ -77,10 +77,12 @@ body {
 				<br /><br /> -->
 				<h1>Order Placed Successfully</h1>
 				<h2><!-- display the userId just entered -->
-				Total items in your cart :  ${userBean.getQty() }</h2>
+				It will be delivered shortly to  :  ${userBean.getQty() }</h2>
 				<br/>
 			</fieldset>
 		</div>
+		
+		
 			<nav class="navbar navbar-inverse navbar-fixed-bottom ">
   <div class="container-fluid">
 

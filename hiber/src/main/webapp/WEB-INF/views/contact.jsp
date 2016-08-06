@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="model.cartList"%>
 <html lang="en">
 <head>
   <title>Contact Us</title>
@@ -75,10 +76,11 @@ body {
 <h1>Contact Us...</h1><br>
 <br>
 <pre>
+Developed By		: SURAJ SAINI
+Address 		: DLF phase 1 Gurgaon
+Mob 			: 07503220090
+Email			: surajkumar90@rocketmail.com
 
-Address : DLF phase 1 Gurgaon
-Mob 	: 07503220090
-Email	: surajkumar90@rocketmail.com
 
 </pre>
  <nav class="navbar navbar-inverse navbar-fixed-bottom ">
@@ -101,6 +103,8 @@ Email	: surajkumar90@rocketmail.com
  </ul>
   </div>
 </nav>
+
+
 
 </body>
 </html>

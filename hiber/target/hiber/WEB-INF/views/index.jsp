@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.css" rel="stylesheet" >
+  
 <style>
 @import url('http://weloveiconfonts.com/api/?family=entypo');
 
@@ -46,17 +50,16 @@ body {
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
- <a href="#"><img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\n1.png" alt="ninja" width="250" height="150">
+ <a href="#"><img src="${pageContext.servletContext.contextPath}/resources/logo.png"  alt="ninja" width="150" height="100"/>
     </a>
-	
+	<h2 style="color:yellow; ">NINJA GADGETS</h2>
     </div>
     <h3>
     <ul class="nav navbar-nav navbar-right">
        <li><a href="index"> Home</a></li> 
-	 <li><a href="product"> Product</a></li> 
-	 <li><a href="addproduct"> Add Product</a></li> 
+	 <li><a href="productTable"> Product</a></li> 
 	  <li><a href="customerreg"> Register</a></li>
-	  <li><a href="sendEmail"> Promote</a></li>
+	  <li><a href="send"> Promote</a></li>
 	   <div class="btn-group">
 	   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Sign In
 	   <span class="caret"></span>
@@ -83,20 +86,22 @@ body {
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\g1.jpeg" height=300 width=500 alt="pen drive">
+      <img src="${pageContext.servletContext.contextPath}/resources/g1.jpg">
     </div>
 
     <div class="item">
-      <img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\g4.jpg" height=300 width=500 alt="earphone">    </div>
-
-    <div class="item">
-      <img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\g3.jpg" height=300 width=500 alt="digicam">
+       <img src="${pageContext.servletContext.contextPath}/resources/g2.jpg">
     </div>
 
     <div class="item">
-      <img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\g4.jpg" height=300 width=500 alt="earphone">
+       <img src="${pageContext.servletContext.contextPath}/resources/g3.jpg">
     </div>
-  </div>
+
+
+    <div class="item">
+      <img src="${pageContext.servletContext.contextPath}/resources/g4.jpg">
+    </div>
+ </div>
 
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -109,28 +114,24 @@ body {
   </a>
 </div>
 
- <div class="text-center">
-        <a onclick="" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a>
-        <a onclick="" class="btn btn-social-icon btn-lg btn-dropbox"><i class="fa fa-dropbox"></i></a>
-        <a onclick="" class="btn btn-social-icon btn-lg btn-flickr"><i class="fa fa-flickr"></i></a>
-        <a onclick="" class="btn btn-social-icon btn-lg btn-pinterest"><i class="fa fa-pinterest"></i></a>
-    </div>
-
-<nav class="navbar navbar-inverse">
+ <nav class="navbar navbar-inverse   ">
   <div class="container-fluid">
-      <h3>
-      <ul class="nav navbar-nav navbar-left">
-      <li><a href="#"> About Us</a></li> 
-	  <li><a href="#"> Contact Us</a></li>
+
+      <ul class="nav navbar-nav">
+      <li class="active"><a href="about"> About Us</a></li> 
+	  <li class="active"><a href="contact"> Contact Us</a></li>
       
     </ul>
+    
     <ul class="nav navbar-nav navbar-right">
-      <div class="wrapper">
-  <div float=right class="social">&#62220;</div>
-  <div float=right class="social">&#62217;</div>
-  <div float=right class="social">&#62223;</div>
-  
-</div>  </ul></h3>
+      
+  <li><a onclick="" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a></li>
+       
+  <li><a onclick="" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a></li>
+  <li> <a onclick="" class="btn btn-social-icon btn-lg btn-flickr"><i class="fa fa-flickr"></i></a></li>
+   <li>     <a onclick="" class="btn btn-social-icon btn-lg btn-pinterest"><i class="fa fa-pinterest"></i></a></li>
+   
+ </ul>
   </div>
 </nav>
 

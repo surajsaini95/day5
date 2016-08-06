@@ -1,4 +1,4 @@
-	<%@ page session="false"%>
+<%@ page session="false"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -59,12 +59,12 @@ body {
   cursor: pointer;
 }
 </style></head>
-<body>
+<body bgcolor=lightgrey>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
- <a href="#"><img src="" alt="" width="250" height="150">
+ <a href="#"><img src="${pageContext.servletContext.contextPath}/resources/logo.png"  alt="ninja" width="150" height="100"/>
     </a>
 	
     </div>
@@ -78,7 +78,7 @@ body {
 
  <br/>
  
- <form  method="post" action="FileUploadSuccess" enctype="multipart/form-data">
+ <form  method="post" action="./FileUploadSuccess?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
        
        <label><spring:message text="File to upload"></spring:message></label>  
        <input type="file" name="file">   
@@ -86,7 +86,7 @@ body {
         <span><form:errors path="file" cssClass="error" />
 		</span>
         
-        
+       
         </form>
          <br/> <br/>
  

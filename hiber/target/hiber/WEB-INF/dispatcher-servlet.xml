@@ -19,13 +19,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                     http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">   
                     
 
- <mvc:annotation-driven/>
+<mvc:annotation-driven/>
 <mvc:default-servlet-handler/>
 <context:annotation-config />
-                <context:component-scan base-package="controllers,dao" />
+<context:component-scan base-package="controllers,dao" />
                 
-    
-             
+   <mvc:resources mapping="/resources/**" location="/resources/" />
+              
                 <tx:annotation-driven/>
                 
              
@@ -90,8 +90,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
-		<property name="username" value="dttbanglore@gmail.com" />
-		<property name="password" value="password@dt" />
+		<property name="username" value="niitemployeesportal@gmail.com" />
+		<property name="password" value="password@niit" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.transport.protocol">smtp</prop>

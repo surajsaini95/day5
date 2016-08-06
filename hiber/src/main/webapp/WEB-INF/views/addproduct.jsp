@@ -120,8 +120,6 @@ body {
 			<label class="col-sm-2 control-label">Price</label>
 			<form:input path="price" class="form-control" id="price" placeholder="price" />
 		</spring:bind>
-
-		
 		<td colspan="2">
             <c:if test="${!empty product.name}">
                 <input type="submit" value="<spring:message text="Edit Product"/>" />

@@ -76,7 +76,7 @@ body {
 	
 		<div class="content">
 			<fieldset>
-				<legend><h1>Your Cart</h1></legend>
+				<legend><h1>Your Cart is ready to be delivered </h1></legend>
 				<!-- for triggering webflow events using links, the eventId to be triggered is given in "href" attribute as:-->
 					
     
@@ -85,16 +85,21 @@ body {
       <input name="submit" type="submit" value="Submit" />
      </sf:form><br>
       --%>
-     
-     <sf:form modelAttribute="userBean"><br />
-					<sf:label path="qty">Quantity:</sf:label>
+    <%--  <%int id=Integer.parseInt(request.getParameter("a")); %>
+     --%> <sf:form modelAttribute="userBean"><br />
+					<sf:label path="qty">Enter shipping address :</sf:label>
 					<sf:input path="qty" /><br />
+					<!-- 
+					<input type="hidden" name="b" value=id>
+					 -->
 					<!-- to display validation messages -->
 					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('qty')}" var="err"/>
 					  <div><span>${err.text}</span></div>
 					  <br>
 					  <input name="_eventId_submit" type="submit" value="Submit" /><br />
    <br>    </sf:form><br>
+   
+    <a href="productTable">Add more products</a>
 			<%-- 
 				<sf:form modelAttribute="userBean"><br />
 					<sf:label path="userId">UserName:</sf:label>

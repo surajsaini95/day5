@@ -3,9 +3,13 @@ package controllers;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,13 +22,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.google.gson.Gson;
 
+import dao.cartListServices;
 import dao.productServices;
 import model.Product;
+import model.cartList;
 
 
 @EnableWebMvc
@@ -35,6 +42,9 @@ public class HomeController {
 	
 	@Autowired
 	  public productServices productService;
+	
+	@Autowired
+	  public cartListServices cartListService;
 	
 	@Qualifier(value="productService")
     public void setPersonService(productServices ps){
@@ -51,6 +61,12 @@ public class HomeController {
     {
     	return "sent";
     }
+	
+	/*@RequestMapping("/AddToCart")
+    public String showcart()
+    {
+    	return "cart";
+    }*/
 	
 	@RequestMapping("/about")
     public String showaboutt()
@@ -116,6 +132,26 @@ public class HomeController {
     	return "addproduct";   
     }
 
+   @RequestMapping(value = "/AddToCart", method =RequestMethod.GET)
+    public String addproduct(@ModelAttribute("cart") cartList c)
+    {
+	   
+	   cartListService.addProduct(c);
+    	return "redirect:/show";   
+    }
+   
+  
+   
+    /*@RequestMapping(value = "/AddToCart", method =RequestMethod.GET)
+    public String addproduct(@RequestParam("name") String pname,Model m)
+    {
+    	//cartListService.addProduct(c);
+    
+	  
+	   m.addAttribute("cart", pname);
+    	return "contact";   
+    }
+   */
    /* @RequestMapping("/desp")
     public String showProductDescription()
     {
@@ -137,6 +173,12 @@ public class HomeController {
     	return "redirect:/product";
     }
     
+    @RequestMapping("/del/{pid}")
+    public String removecartProduct(@PathVariable("pid") int pid)
+    {
+    	this.cartListService.removecartProduct(pid);
+    	return "redirect:/show";
+    }
     /*@RequestMapping("/edit/{id}")
     public String editProduct(@PathVariable("id") int id,Model model)
     {
@@ -151,7 +193,7 @@ public class HomeController {
 	public String showcontact()
 
 	{
-		return "edit";
+		return "contact";
 
 	}
 
@@ -178,10 +220,14 @@ public class HomeController {
     public ModelAndView description(HttpServletRequest request)
     {
  	int contactId = Integer.parseInt(request.getParameter("id"));
-        Product contact = productService.getProductById(contactId);
+ 	/*Set<Product> sp=new LinkedHashSet<Product>();
+    */Product contact = productService.getProductById(contactId);
         ModelAndView model = new ModelAndView("productdescription");
+       /* sp.add(contact);
+        
+        s.setAttribute("setPro", sp);
+       */   
         model.addObject("desp", contact);
-    
         
     	return model;
     }
@@ -214,6 +260,22 @@ public class HomeController {
 		mv.addObject("myJson", json);
 		return mv;
 	}
+   
+    
+    @RequestMapping(value = "/show" )
+	//@ResponseBody
+	public ModelAndView showcartList()
+	{
+		List<cartList> clist=new ArrayList<cartList>();
+		clist=cartListService.listProduct();
+		String json = new Gson().toJson(clist);  // converting list into Google Gson object which is a string
+		System.out.println(json);
+		ModelAndView mv=new ModelAndView("cart");
+		mv.addObject("myJson", json);
+		return mv;
+	}
+  
+    
     
     @RequestMapping(value="/sendEmail", method = RequestMethod.POST)
     public String doSendEmail(HttpServletRequest request) {

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Success</title>
 </head>
-<body>
+<body bgcolor=lightgrey>
 FileName : "
 	<strong> ${fileName} </strong>" - Uploaded Successful.
 </body>

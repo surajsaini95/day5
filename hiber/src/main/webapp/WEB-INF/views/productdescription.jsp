@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home</title>
+  <title>product description</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -76,29 +76,27 @@ body {
   </div>
 </nav>
 
+<pre>
+<form  method="get" modelAttribute="desp" action="AddToCart" >
 
 
- <form:form action="" method="post" modelAttribute="desp">
-        <table>
-            
-            <tr>
-                <td>Name:</td>	
-                <td>${desp.name}</td>
-            </tr>
-            <tr>
-                <td>Category:</td>
-                <td>${desp.category}</td>
-            </tr>
-            <tr>
-                <td>price:</td>
-                <td>${desp.price}</td>
-            </tr>
-          
-            </table>
-        </form:form>
- 
+ Product Id		 	:		<input type="text" value="${desp.id}" name="pid" readonly/>
+ Product Name			:		<input type="text" value="${desp.name}" name="pname" readonly/>
+ Product Category		:		<input type="text" value="${desp.category}" name="pcategory" readonly/> 
+ Product Price			:		<input type="text" value="${desp.price}" name="pprice" readonly/>
+ Enter Quantity			:		<input type="text"  name="quantity"/>
+       	   
+       <input type="submit" value="Add to Cart" />
+           </form>
+  
+  </pre>     
 
-<h2><a href="AddToCart">Add to cart </a> </h2>
+<!-- <h4><a href="AddToCart">Add to cart </a> </h4>
+<br/><br/><br/> -->
+
+  <h4><a href="show">View cart </a> </h4>
+  <br/><br/><br/>
+<h4><a href="productTable">Product Table </a> </h4>
 
 
 <nav class="navbar navbar-inverse navbar-fixed-bottom ">

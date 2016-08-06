@@ -61,12 +61,12 @@ body {
 }
 
 </style></head>
-<body>
+<body bgcolor=lightgrey>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
- <a href="#"><img src="C:\Users\suraj\Desktop\try\backup\day4\ninja\src\main\resources\n1.png" alt="ninja" width="250" height="150">
+<a href="#"><img src="${pageContext.servletContext.contextPath}/resources/logo.png"  alt="ninja" width="150" height="100"/>
     </a>
 	
     </div>
@@ -88,8 +88,8 @@ body {
             <th>ProductName</th>  
             <th>Category</th>  
             <th>Price</th> 
-            <th>Update</th> 
-            <th>Delete</th> 
+			 <th>Edit</th>
+             <th>Delete</th> 
             <th>Details</th> 
             
              
@@ -104,9 +104,9 @@ body {
           <td>${p.name}</td>
           <td>${p.category}</td>
           <td>${p.price}</td>
-          <td><a href="edit/${p.id}" class="btn btn-primary">Edit</a> </td>
-          <td><a href="delete/${p.id}" class="btn btn-primary">Delete</a> </td>
-          <td><a href="details" class="btn btn-primary">Details</a> </td>
+          <td><a href="edit?id=${p.id}" class="btn btn-primary">Edit</a></td>
+		  <td><a href="delete/${p.id}" class="btn btn-primary">Delete</a> </td>
+          <td><a href="productdescription" class="btn btn-primary">Details</a> </td>
           
           
           

@@ -74,13 +74,13 @@ body {
 	
 		<div class="content">
 			<fieldset>
-				<legend><h1>Confirm Details</h1></legend>
+				<legend><h1>Confirm Shipping Details</h1></legend>
 				<!-- for triggering webflow events using links,
 					 the eventId to be triggered is given in "href" attribute as:
 				 -->
-				<p>You have entered </p>
-				<sf:form modelAttribute="userBean">
-					<sf:label path="qty">Quantity:</sf:label>${userBean.getQty()}
+				<!-- <p>Your address is </p>
+				 --><sf:form modelAttribute="userBean">
+					<sf:label path="qty">Delivered to :</sf:label>${userBean.getQty()}
 					<input name="_eventId_submit" type="submit" value="Check Out" />
 				</sf:form>	
 				

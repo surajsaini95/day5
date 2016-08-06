@@ -4,13 +4,13 @@ package controllers;
 
 	public class UserBean implements Serializable{
 
-		public Integer Qty;
+		public String Qty;
 
-		public Integer getQty() {
+		public String getQty() {
 			return Qty;
 		}
 
-		public void setQty(Integer qty) {
+		public void setQty(String qty) {
 			Qty = qty;
 		}
 		
