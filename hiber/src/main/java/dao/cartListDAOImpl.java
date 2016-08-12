@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.Product;
 import model.cartList;
 
 @Repository
@@ -27,7 +26,7 @@ public class cartListDAOImpl {
 	 public void addProduct(cartList c)
 	    {
 	        Session session = this.sessionFactory.getCurrentSession();
-	        session.save(c);
+	        session.saveOrUpdate(c);
 	        logger.info("Product added to cart, Product Details="+c);
 	    }
 	 
@@ -49,7 +48,7 @@ public class cartListDAOImpl {
 	    }
 	 
 
-	public void removecartProduct(int pid) {
+	public void removecartList(int pid) {
 		 Session session = this.sessionFactory.getCurrentSession();
 		 cartList c = (cartList) session.load(cartList.class, new Integer(pid));
 	        if(null != c){

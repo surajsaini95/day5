@@ -36,8 +36,16 @@ public class cartListServices {
 	        return this.cartListDAO.getProductById(pid);
 	    }
 	    @Transactional
-	    public void removecartProduct(int pid) 
+	    public void removecartList(int pid) 
 	    {
-	        this.cartListDAO.removecartProduct(pid);
+	        this.cartListDAO.removecartList(pid);
 	    }
+	    
+	   /* @Transactional
+	    public void removeAllCartItems(cartList cart) {
+	        List<cartList> cartItems = cart.getCartItems();
+              for (cartList item : cartItems) {
+	            removecartList(item);
+	        }
+	    }*/
 }

@@ -34,7 +34,9 @@ public class productDAOImpl  {
   
     public void updateProduct(Product p) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.update(p);
+        session.saveOrUpdate(p);
+        System.out.println("\n\n\nupdated quantity in dao"+p.quantity+"\n\n");
+  	  
         logger.info("Product updated successfully, Product Details="+p);
     }
  
@@ -52,8 +54,12 @@ public class productDAOImpl  {
  
     
     public Product getProductById(int id) {
+    	 System.out.println("\n\n\nproduct id in function"+id+"\n\n");
+   	  
         Session session = this.sessionFactory.getCurrentSession();      
         Product p = (Product) session.load(Product.class, new Integer(id));
+        System.out.println("\n\n\noriginal quantity in dao "+p.quantity+"\n\n");
+  	  
         logger.info("Product loaded successfully, Person details="+p);
         return p;
     }

@@ -3,17 +3,10 @@ package controllers;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
-
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.ui.Model;
@@ -22,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -135,7 +127,14 @@ public class HomeController {
    @RequestMapping(value = "/AddToCart", method =RequestMethod.GET)
     public String addproduct(@ModelAttribute("cart") cartList c)
     {
+	   Product p=this.productService.getProductById(c.pid);
+	   System.out.println("\n\n\ncart product  name "+c.pname+"\n\n");
+	   System.out.println("\n\n\noriginal quantity in stock "+p.quantity+"\n\n");
+		    
+	   p.quantity-=c.quantity;
 	   
+	   this.productService.updateProduct(p);
+	   System.out.println("\n\n\nupdated quantity in stock"+p.quantity+"\n\n");
 	   cartListService.addProduct(c);
     	return "redirect:/show";   
     }
@@ -165,6 +164,20 @@ public class HomeController {
         return "product";
     }
     
+    @RequestMapping(value = "/show" )
+   	//@ResponseBody
+   	public ModelAndView showcartList()
+   	{
+   		List<cartList> clist=new ArrayList<cartList>();
+   		clist=cartListService.listProduct();
+   		String json = new Gson().toJson(clist);  // converting list into Google Gson object which is a string
+   		System.out.println(json);
+   		
+   		ModelAndView mv=new ModelAndView("cart");
+   		mv.addObject("myJson", json);
+   		return mv;
+   	}
+     
     
     @RequestMapping("/delete/{id}")
     public String removeProduct(@PathVariable("id") int id)
@@ -173,12 +186,16 @@ public class HomeController {
     	return "redirect:/product";
     }
     
-    @RequestMapping("/del/{pid}")
-    public String removecartProduct(@PathVariable("pid") int pid)
+    @RequestMapping("/remove/{pid}")
+    public String removecartList(@PathVariable(value="pid") int pid)
     {
-    	this.cartListService.removecartProduct(pid);
+    	 System.out.println("\n\n\ninside remove");
+   	  
+    	this.cartListService.removecartList(pid);
     	return "redirect:/show";
     }
+    
+    
     /*@RequestMapping("/edit/{id}")
     public String editProduct(@PathVariable("id") int id,Model model)
     {
@@ -262,7 +279,7 @@ public class HomeController {
 	}
    
     
-    @RequestMapping(value = "/show" )
+   /* @RequestMapping(value = "/show" )
 	//@ResponseBody
 	public ModelAndView showcartList()
 	{
@@ -270,11 +287,12 @@ public class HomeController {
 		clist=cartListService.listProduct();
 		String json = new Gson().toJson(clist);  // converting list into Google Gson object which is a string
 		System.out.println(json);
+		
 		ModelAndView mv=new ModelAndView("cart");
 		mv.addObject("myJson", json);
 		return mv;
 	}
-  
+  */
     
     
     @RequestMapping(value="/sendEmail", method = RequestMethod.POST)

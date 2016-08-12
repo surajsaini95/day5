@@ -87,6 +87,7 @@ body {
             <th>PId</th>  
             <th>ProductName</th>  
             <th>Category</th>  
+            <th>Stock Left</th>  
             <th>Price</th> 
 			 <th>Edit</th>
              <th>Delete</th> 
@@ -103,6 +104,7 @@ body {
           <td>${p.id}</td>
           <td>${p.name}</td>
           <td>${p.category}</td>
+          <td>${p.quantity}</td>
           <td>${p.price}</td>
           <td><a href="edit?id=${p.id}" class="btn btn-primary">Edit</a></td>
 		  <td><a href="delete/${p.id}" class="btn btn-primary">Delete</a> </td>

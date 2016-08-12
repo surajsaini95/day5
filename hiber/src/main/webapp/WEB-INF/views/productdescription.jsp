@@ -83,20 +83,36 @@ body {
  Product Id		 	:		<input type="text" value="${desp.id}" name="pid" readonly/>
  Product Name			:		<input type="text" value="${desp.name}" name="pname" readonly/>
  Product Category		:		<input type="text" value="${desp.category}" name="pcategory" readonly/> 
- Product Price			:		<input type="text" value="${desp.price}" name="pprice" readonly/>
- Enter Quantity			:		<input type="text"  name="quantity"/>
-       	   
-       <input type="submit" value="Add to Cart" />
+ Product Price			:		<input type="text" value="${desp.price}" name="pprice" readonly/> 
+ Enter Quantity			:		<input type="text"  id="stock" name="quantity"/> <label id="demo"></label> <button type="button" onclick="check()">Check stock</button>
+<script>
+function check() {
+    var x, text;
+	var s=${desp.quantity};
+   x = document.getElementById("stock").value;
+
+    if (isNaN(x)||x == "") {
+    	
+        text = "invalid input";
+    } else if(x>s){
+    	text = "quantity not in stock";
+    }else
+    { document.getElementById("stck").disabled=false;
+        text = "in stock";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+</script>
+       <input type="submit" id="stck" class="btn btn-primary" value="Add to Cart" disabled/>
            </form>
   
   </pre>     
 
-<!-- <h4><a href="AddToCart">Add to cart </a> </h4>
-<br/><br/><br/> -->
 
-  <h4><a href="show">View cart </a> </h4>
-  <br/><br/><br/>
-<h4><a href="productTable">Product Table </a> </h4>
+
+  <h4><a href="show" class="btn btn-primary">View cart </a> </h4>
+  <br/>
+  <h4><a href="productTable" class="btn btn-primary">Product Table </a> </h4>
 
 
 <nav class="navbar navbar-inverse navbar-fixed-bottom ">

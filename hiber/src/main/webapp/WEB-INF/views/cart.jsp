@@ -36,6 +36,15 @@
          index = $scope.CARTLISTS.indexOf(value);  
          return (begin <= index && index < end);  
        };  
+       $scope.getTotal = function(){
+   	    var total = 0;
+   	    for(var i = 0; i < $scope.CARTLISTS.length; i++){
+   	         total +=$scope.CARTLISTS[i].pprice *$scope.CARTLISTS[i].quantity;
+   	    }
+   	    return total;
+   	}
+       
+       
      });  
    </script>  
    <style>  
@@ -83,7 +92,7 @@
 </nav>
  
   
-  <h1>this is cart</h1>
+  <h1>this is your cart</h1>
   
   <br/>
   
@@ -105,20 +114,35 @@
               <th>		</th>
           </tr> 
          </thead>  
-         <tbody>  
+         <tbody >  
             
            <tr ng-repeat="listProduct in CARTLISTS | orderBy:predicate:reverse | filter:paginate| filter:search" ng-class-odd="'odd'">  
              
       
              <td>{{listProduct.pid}}</td>  
             <td>{{listProduct.pname}}</td>  
-             <td>{{listProduct.pprice}}</td>  
+             <td>{{listProduct.pprice | currency}}</td>  
            <td>{{listProduct.pcategory}}</td>  
              <td>{{listProduct.quantity}}</td>  
-            <td>{{listProduct.pprice*listProduct.quantity}}</td>  
-             <td><a href="del?pid={{listProduct.pid}}" class="btn btn-primary" >Remove</a> </td>
+            <td>{{listProduct.pprice*listProduct.quantity | currency}}</td>  
+             <td><a href="remove/{{listProduct.pid}}" class="btn btn-primary" >Remove</a> </td>
           
+       <!--    <td><a href="#" class="label label-danger" ng-click="removeFromCart(listProduct.pid)">
+                        <span class="glyphicon glyphicon-remove"></span>remove</a></td>
+        -->   
              </tr>  
+              <tr>
+                <td>	</td>
+                <td> <a href="productTable" class="btn btn-primary">Add more products</a>
+                	</td>
+                <td>	</td>
+                <td>	</td>
+                <td>Total :</td>
+                <td>{{ getTotal() | currency }}</td>
+               <td>	<h4><a href="checkOut" class="btn btn-primary">Check Out</a> </h4>
+ 	</td> 
+            </tr>
+             
          </tbody>  
        </table>  
        <pagination total-items="totalItems" ng-model="currentPage"  
@@ -127,15 +151,56 @@
        </pagination>  
      </div>  
    </div>  
-   
+
   <%--  ${myJson} --%>
   <br/><br/>
-  <a href="productTable">Add more products</a>
- <br/><br/><br/>
-  <h4><a href="checkOut">Check Out</a> </h4>
-  
-  <br/><br/><br/>
-  
+ 
+ <%-- <
+ div class="table-responsive">
+<table id="myTable" class="display table" width="100%" >
+
+<thead>  
+          <tr>  
+            <th>PId</th>  
+            <th>PName</th>  
+            <th>PPrice</th> 
+			<th>PCategory</th>  
+            <th>Quantity</th>  
+             <th>PTotal</th>
+              <th> 	</th> 
+            
+             
+          </tr>  
+        </thead>  
+        <tbody>  
+ 
+        
+          <c:forEach items="${myJson}" var="p">
+           <tr>  
+          <td>${p.pid}</td>
+          <td>${p.pname}</td>
+          <td>${p.pcategory}</td>
+          <td>${p.quantity}</td>
+          <td>${p.pprice}</td>
+          <td> </td>
+		  <td><a href="remove/${p.id}" class="btn btn-primary">Delete</a> </td>
+          
+          
+          
+          
+          </tr>
+          </c:forEach>
+        </tbody> 
+
+</table>
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</div>
+ 
+ --%> 
  <nav class="navbar navbar-inverse ">
   <div class="container-fluid">
 

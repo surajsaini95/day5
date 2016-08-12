@@ -15,8 +15,16 @@ public class Product {
 	public String name;
 	public int price;
 	public String category;
-
+	public int quantity;
 	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	public int getId() {
 		return id;
 	}

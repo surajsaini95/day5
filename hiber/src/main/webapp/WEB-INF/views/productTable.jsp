@@ -91,6 +91,7 @@
           	 <th><a href="" ng-click="order('id')">Id</a></th>   
              <th><a href="" ng-click="order('category')">Category</a> </th>  
              <th><a href="" ng-click="order('name')">Name</a></th>  
+             <th><a href="" ng-click="order('quantity')">Stock Left</a> </th>  
              <th><a href="" ng-click="order('price')"> Price</a> </th>  
             	<th>		</th></tr> 
          </thead>  
@@ -101,6 +102,7 @@
              <td>{{listProduct.id}}</td>  
             <td>{{listProduct.category}}</td>  
             <td>{{listProduct.name}}</td>  
+            <td>{{listProduct.quantity}}</td>  
              <td>{{listProduct.price}}</td>  
             <td><a href="productdescription?id={{listProduct.id}}" class="btn btn-primary" >Details</a> </td>
           

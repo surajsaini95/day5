@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 
 @Table(name="CARTLISTS")
 @Entity
@@ -16,7 +20,9 @@ public class cartList {
 	public int pprice;
 	public String pcategory;
 	public int ptotal;
+	
 	public int quantity;
+	
 	public int getPid() {
 		return pid;
 	}

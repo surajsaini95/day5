@@ -116,6 +116,11 @@ body {
 			<form:input path="category" class="form-control" id="category" placeholder="Category" />
 		</spring:bind>
 <br/>
+		<spring:bind path="quantity">
+			<label class="col-sm-2 control-label">Quantity</label>
+			<form:input path="quantity" class="form-control" id="quantity" placeholder="Quantity" />
+		</spring:bind>
+<br/>
 		<spring:bind path="price">
 			<label class="col-sm-2 control-label">Price</label>
 			<form:input path="price" class="form-control" id="price" placeholder="price" />

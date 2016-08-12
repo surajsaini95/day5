@@ -60,6 +60,10 @@
                 <td><form:input path="category" /></td>
             </tr>
             <tr>
+                <td>Stock:</td>
+                <td><form:input path="quantity" /></td>
+            </tr> 
+            <tr>
                 <td>price:</td>
                 <td><form:input path="price" /></td>
             </tr>
